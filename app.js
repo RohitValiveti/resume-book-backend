@@ -15,16 +15,17 @@ const students =[
     netid: 'abc2',
     year: 'freshman',
     major: 'CS',
-    resume: 'resume'
+    resume: 'resumefile'
   },
   {
     netid: 'fht9',
     year: 'senior',
     major: 'IS',
-    resume: 'resume'
+    resume: 'resumefile'
   },
-
 ]
+
+const sponsers = ["Company1", "Company2"]
 
 // Cornell Students
 app.get('/student/:netid', (req, res) => {
@@ -47,9 +48,24 @@ app.get('/sponser', (req, res) => {
   res.send(students)
 })
 
+app.get('/sponser/:year', (req, res) => {
+  const year = req.params.year
+  res.send(`Students who are a ${year}`)
+})
+
+app.get('/sponser/:major', (req, res) => {
+  const major = req.params.major
+  res.send(`Students who are a ${major} major`)
+})
+
 
 
 //Admin
 app.get('/admin', (req, res) => {
   res.send('Admin Page')
+})
+
+app.get('/admin/:netid', (req, res) => {
+  const netid = req.params.netid
+  res.send(`${netid}'s Profile and Resume`)
 })
