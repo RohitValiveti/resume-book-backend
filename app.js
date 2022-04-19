@@ -80,3 +80,7 @@ app.post("/admin/:netid/:sponsor", function (req, res) {
   const sponsor = req.params.sponsor;
   //i think render different templates depending on if sponsor exists or not
 });
+
+app.get("/admin/manage", function (req, res) {
+  //manage students
+});
